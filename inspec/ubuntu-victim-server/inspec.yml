@@ -1,0 +1,6 @@
+name: ubuntu-victim-server
+title: Comprobaciones servicios víctima en Ubuntu
+maintainer: admin
+version: 0.1.0
+supports:
+  - os-family: linux

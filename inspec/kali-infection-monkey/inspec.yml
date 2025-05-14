@@ -1,0 +1,6 @@
+name: kali-infection-monkey
+title: Comprobaciones Infection Monkey en Kali
+maintainer: admin
+version: 0.1.0
+supports:
+  - os-family: linux

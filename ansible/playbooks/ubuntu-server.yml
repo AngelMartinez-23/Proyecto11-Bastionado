@@ -1,0 +1,6 @@
+---
+- name: Configurar servidor víctima
+  hosts: ubuntu-server
+  become: yes
+  roles:
+    - victim-server

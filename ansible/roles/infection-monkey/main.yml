@@ -1,0 +1,27 @@
+---
+- name: Instalar dependencias necesarias
+  apt:
+    name: libfuse2
+    state: present
+    update_cache: yes
+
+- name: Descargar Infection Monkey AppImage zip
+  get_url:
+    url: "https://github.com/guardicore/monkey/releases/download/v2.3.0/InfectionMonkey-v2.3.0.AppImage"
+    dest: "/tmp/InfectionMonkey-v2.3.0.AppImage"
+
+- name: Dar permisos de ejecución al AppImage
+  file:
+    path: "/tmp/InfectionMonkey-v2.3.0.AppImage"
+    mode: '0755'
+
+- name: Instalar Infection Monkey como servicio
+  command: "/tmp/InfectionMonkey-v2.3.0.AppImage service --install --user kali"
+  args:
+    creates: /etc/systemd/system/infection-monkey.service
+
+- name: Iniciar el servicio Infection Monkey
+  systemd:
+    name: infection-monkey
+    state: started
+    enabled: yes

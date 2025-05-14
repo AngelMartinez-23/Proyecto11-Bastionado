@@ -1,0 +1,6 @@
+---
+- name: Instalar Infection Monkey en Kali
+  hosts: kali
+  become: yes
+  roles:
+    - infection-monkey
